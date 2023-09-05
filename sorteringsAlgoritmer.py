@@ -16,12 +16,27 @@ def bubbleSort (items):
             # than the next element
             if items[j] > items[j+1]:
                 swapped = True
+                # code below swaps the current number with the next one
+                # python has a wierd thing where [=] can swap.
                 items[j], items[j+1] = items[j+1], items[j]
             # if we haven't needed to make a single swap, we
             # can just exit the main loop.
             if not swapped:
                 break
     return items
+
+def selectionSort(array):
+    size = len(array)
+    for i in range(size):
+        min_index = i
+
+        for j in range(i + 1, size):
+            # select the minimum element in every iteration
+            if array[j] < array[min_index]:
+                min_index = j
+                # swapping the elements to sort the array
+                (array[i], array[min_index]) = (array[min_index], array[i])
+    return array
 
 
 
@@ -31,7 +46,7 @@ if __name__ == '__main__':
     for i in range(50):
         random.shuffle(lb)
         ## Kald den funktion, du vil teste
-        ls = bubbleSort(l)
+        ls = selectionSort(l)
         ## Kald den funktion, du vil teste
         if ls != l:
             print('Fejl! Algoritmen kan ikke sortere.')
