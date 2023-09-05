@@ -24,25 +24,18 @@ def bubbleSort(items):
                 break
     return items
 
+def selectionSort(array):
+    size = len(array)
+    for i in range(size):
+        min_index = i
 
-def insertionSort(arr):
-    n = len(arr)  # Get the length of the array
-
-    if n <= 1:
-        return   # If the array has 0 or 1 element, it is already sorted, so return
-
-    for i in range(1, n):  # Iterate over the array starting from the second element
-        key = arr[i]  # Store the current element as the key to be inserted in the right position
-        j = i - 1
-        while j >= 0 and key < arr[j]:  # Move elements greater than key one position ahead
-            arr[j + 1] = arr[j]  # Shift elements to the right
-            j -= 1
-        arr[j + 1] = key  # Insert the key in the correct position
-
-    return arr
-
-
-
+        for j in range(i + 1, size):
+            # select the minimum element in every iteration
+            if array[j] < array[min_index]:
+                min_index = j
+                # swapping the elements to sort the array
+                (array[i], array[min_index]) = (array[min_index], array[i])
+    return array
 
 
 
@@ -52,11 +45,9 @@ if __name__ == '__main__':
     for i in range(50):
         random.shuffle(lb)
         # Kald den funktion, du vil teste
-        ls = insertionSort(l)
-        # Kald den funktion, du vil teste
-        ## Kald den funktion, du vil teste
+        ls = selectionSort(l)
 
-        ## Kald den funktion, du vil teste
+
         if ls != l:
             print('Fejl! Algoritmen kan ikke sortere.')
             break
