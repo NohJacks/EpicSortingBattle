@@ -1,5 +1,7 @@
 import random, copy
 
+def selectionSort(arr):
+    arr=arr.copy()
 
 
 def bubbleSort(arr):
