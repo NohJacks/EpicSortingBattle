@@ -24,7 +24,7 @@ def bubbleSort(items):
                 break
     return items
 
-def selectionSort(array):
+def selectionSxort(array):
     size = len(array)
     for i in range(size):
         min_index = i
@@ -37,7 +37,7 @@ def selectionSort(array):
                 (array[i], array[min_index]) = (array[min_index], array[i])
     return array
 
-def insertionSort(arr):
+def insertionSxort(arr):
     n = len(arr)  # Get the length of the array
 
     if n <= 1:
@@ -53,13 +53,23 @@ def insertionSort(arr):
 
     return arr
 
+def merge(arr,l,m,r):
+    n1 = m - 1 + 1
+    n2 = r - m
+
+# create temperay arrays
+#L = [0]*(n1)
+#R = [0]*(n2)
+
+
+
 if __name__ == '__main__':
     l = list(range(0, 5))
     lb = l.copy()
     for i in range(50):
         random.shuffle(lb)
         # Kald den funktion, du vil teste
-        ls = selectionSort(l)
+        ls = bubbleSort(l)
 
 
         if ls != l:
@@ -67,3 +77,5 @@ if __name__ == '__main__':
             break
     print('blandet: ', lb)
     print('sorteret:', ls)
+
+
