@@ -77,5 +77,3 @@ if __name__ == '__main__':
             break
     print('blandet: ', lb)
     print('sorteret:', ls)
-
-
