@@ -19,7 +19,7 @@ def bubbleSort(arr):
                     swapped = True
                     arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
-                
+
             if not swapped:
                 break
 
