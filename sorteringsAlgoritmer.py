@@ -24,20 +24,27 @@ def bubbleSort(items):
                 break
     return items
 
-def selectionSxort(array):
+def selectionSort(array):
+    # Return the number of items in a list: so if there are 100 diffrent numbers. size would be 100
     size = len(array)
+    # for every item in size. set i as min_index.
+    # #this means if the funktion has run 2 times. the first item is sorted and
+    # the next non-sorted number is 2
     for i in range(size):
         min_index = i
-
+    # gets compared with other items in the list in the form of j. j is i+1,
+    # meaning its always the next number after i
         for j in range(i + 1, size):
-            # select the minimum element in every iteration
+            # goes though the entire list and selects the minimum element in every iteration,
+            # meaning it manuel compares each item to se if is smaller than the current seleceted.
             if array[j] < array[min_index]:
                 min_index = j
-                # swapping the elements to sort the array
+                # after runing whought entire list, the elements swap the to sort the array.
+                #that is to say it puts it on the current i (number space)
                 (array[i], array[min_index]) = (array[min_index], array[i])
     return array
 
-def insertionSxort(arr):
+def insertionSort(arr):
     n = len(arr)  # Get the length of the array
 
     if n <= 1:
@@ -53,15 +60,60 @@ def insertionSxort(arr):
 
     return arr
 
-def merge(arr,l,m,r):
-    n1 = m - 1 + 1
-    n2 = r - m
+"""def mergeSort(arr,l,m,r):
+        n1 = m - 1 + 1
+        n2 = r - m
 
-# create temperay arrays
-#L = [0]*(n1)
-#R = [0]*(n2)
+    # create temperay arrays
+        L = [0]*(n1)
+        R = [0]*(n2)
 
+        # Copy data to temp arrays L[] and R[]
+        for i in range (0,n1):
+            L[i]=arr[1+i]
+        for j in range(0, n2):
+            R[j] = arr[m + 1 + j]
 
+        # Merge the temp arrays back into arr[l..r]
+        i = 0  # Initial index of first subarray
+        j = 0  # Initial index of second subarray
+        k = l  # Initial index of merged subarray
+
+        while i < n1 and j < n2:
+            if L[i] <= R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+                k += 1
+
+        # l is for left index and r is right index of the
+        # sub-array of arr to be sorted
+
+        def merge(arr, l, r):
+            if l < r:
+                #Same as (l+r)//2, but avoids overflow for
+                #large l and h
+                m = l + (r - l) // 2
+
+                #Sort first and second halves
+                merge(arr, l, m)
+                merge(arr, m + 1, r)
+                mergeSort(arr, l, m, r)
+
+        # Driver code to test above
+        arr = [12, 11, 13, 5, 6, 7]
+        n = len(arr)
+        print("Given array is")
+        for i in range(n):
+            print("%d" % arr[i], end=" ")
+
+        mergeSort(arr, 0, n - 1)
+        print("\n\nSorted array is")
+        for i in range(n):
+            print("%d" % arr[i], end=" ")
+"""
 
 if __name__ == '__main__':
     l = list(range(0, 5))
@@ -69,7 +121,7 @@ if __name__ == '__main__':
     for i in range(50):
         random.shuffle(lb)
         # Kald den funktion, du vil teste
-        ls = bubbleSort(l)
+        ls = selectionSort(l)
 
 
         if ls != l:
